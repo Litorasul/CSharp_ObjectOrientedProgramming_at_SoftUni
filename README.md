@@ -1,4 +1,4 @@
-# CSharp ObjectOrientedProgramming at SoftUni
+# C# ObjectOrientedProgramming at SoftUni
 June - August 2019
 
 My Homeworks for the C# OOP module at SoftUni
