@@ -7,59 +7,90 @@ namespace P03_JediGalaxy
     {
         static void Main()
         {
-            int[] dimestions = Console.ReadLine().Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-            int x = dimestions[0];
-            int y = dimestions[1];
+            int[] dimestions = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            int matrixX = dimestions[0];
+            int matrixY = dimestions[1];
 
-            int[,] matrix = new int[x, y];
+            int[,] matrix = new int[matrixX, matrixY];
+            FillInMatrix(matrixX, matrixY, matrix);
 
-            int value = 0;
-            for (int i = 0; i < x; i++)
-            {
-                for (int j = 0; j < y; j++)
-                {
-                    matrix[i, j] = value++;
-                }
-            }
+            long sum = StarsIvoCollected(matrix);
 
-            string command = Console.ReadLine();
+            Console.WriteLine(sum);
+
+        }
+
+        private static long StarsIvoCollected(int[,] matrix)
+        {
             long sum = 0;
+            string command = Console.ReadLine();
+
             while (command != "Let the Force be with you")
             {
-                int[] ivoS = command.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-                int[] evil = Console.ReadLine().Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-                int xE = evil[0];
-                int yE = evil[1];
+                int[] ivoS = command
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse).ToArray();
+                int[] evil = Console.ReadLine()
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse).ToArray();
 
-                while (xE >= 0 && yE >= 0)
-                {
-                    if (xE >= 0 && xE < matrix.GetLength(0) && yE >= 0 && yE < matrix.GetLength(1))
-                    {
-                        matrix[xE, yE] = 0;
-                    }
-                    xE--;
-                    yE--;
-                }
+                EvilDestroy(matrix, evil);
 
-                int xI = ivoS[0];
-                int yI = ivoS[1];
-
-                while (xI >= 0 && yI < matrix.GetLength(1))
-                {
-                    if (xI >= 0 && xI < matrix.GetLength(0) && yI >= 0 && yI < matrix.GetLength(1))
-                    {
-                        sum += matrix[xI, yI];
-                    }
-
-                    yI++;
-                    xI--;
-                }
+                sum = IvoCollect(matrix, sum, ivoS);
 
                 command = Console.ReadLine();
             }
 
-            Console.WriteLine(sum);
+            return sum;
+        }
 
+        private static long IvoCollect(int[,] matrix, long sum, int[] ivoS)
+        {
+            int ivoX = ivoS[0];
+            int ivoY = ivoS[1];
+
+            while (ivoX >= 0 && ivoY < matrix.GetLength(1))
+            {
+                if (ivoX >= 0 && ivoX < matrix.GetLength(0) && ivoY >= 0 && ivoY < matrix.GetLength(1))
+                {
+                    sum += matrix[ivoX, ivoY];
+                }
+
+                ivoY++;
+                ivoX--;
+            }
+
+            return sum;
+        }
+
+        private static void EvilDestroy(int[,] matrix, int[] evil)
+        {
+            int evilX = evil[0];
+            int evilY = evil[1];
+
+            while (evilX >= 0 && evilY >= 0)
+            {
+                if (evilX >= 0 && evilX < matrix.GetLength(0) && evilY >= 0 && evilY < matrix.GetLength(1))
+                {
+                    matrix[evilX, evilY] = 0;
+                }
+                evilX--;
+                evilY--;
+            }
+        }
+
+        private static void FillInMatrix(int matrixX, int matrixY, int[,] matrix)
+        {
+            int value = 0;
+            for (int i = 0; i < matrixX; i++)
+            {
+                for (int j = 0; j < matrixY; j++)
+                {
+                    matrix[i, j] = value++;
+                }
+            }
         }
     }
 }
