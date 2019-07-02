@@ -5,55 +5,56 @@ using System.Linq;
 namespace P05_GreedyTimes
 {
 
-    public class Potato
+    public class Treasure
     {
         static void Main(string[] args)
         {
-            long vhod = long.Parse(Console.ReadLine());
-            string[] seif = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            long bagCapacity = long.Parse(Console.ReadLine());
 
-            var torba = new Dictionary<string, Dictionary<string, long>>();
-            long zlato = 0;
-            long kamuni = 0;
-            long mangizi = 0;
+            var bag = new Dictionary<string, Dictionary<string, long>>();
 
-            for (int i = 0; i < seif.Length; i += 2)
+            SortTheTreasure(bagCapacity, bag);
+
+            foreach (var treasureType in bag)
             {
-                string name = seif[i];
-                long broika = long.Parse(seif[i + 1]);
-
-                string kvoE = string.Empty;
-
-                if (name.Length == 3)
+                Console.WriteLine($"<{treasureType.Key}> ${treasureType.Value.Values.Sum()}");
+                foreach (var treasureItem in treasureType.Value.OrderByDescending(y => y.Key).ThenBy(y => y.Value))
                 {
-                    kvoE = "Cash";
+                    Console.WriteLine($"##{treasureItem.Key} - {treasureItem.Value}");
                 }
-                else if (name.ToLower().EndsWith("gem"))
-                {
-                    kvoE = "Gem";
-                }
-                else if (name.ToLower() == "gold")
-                {
-                    kvoE = "Gold";
-                }
+            }
+        }
 
-                if (kvoE == "")
+        private static void SortTheTreasure(long bagCapacity, Dictionary<string, Dictionary<string, long>> bag)
+        {
+            string[] treasure = Console.ReadLine()
+                            .Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < treasure.Length; i += 2)
+            {
+                string name = treasure[i];
+                long ammount = long.Parse(treasure[i + 1]);
+
+                string treasureType = WhatTypeIsTheTreasure(name);
+
+                if (treasureType == "")
                 {
                     continue;
                 }
-                else if (vhod < torba.Values.Select(x => x.Values.Sum()).Sum() + broika)
+
+                if (bagCapacity < bag.Values.Select(x => x.Values.Sum()).Sum() + ammount)
                 {
                     continue;
                 }
 
-                switch (kvoE)
+                switch (treasureType)
                 {
                     case "Gem":
-                        if (!torba.ContainsKey(kvoE))
+                        if (!bag.ContainsKey(treasureType))
                         {
-                            if (torba.ContainsKey("Gold"))
+                            if (bag.ContainsKey("Gold"))
                             {
-                                if (broika > torba["Gold"].Values.Sum())
+                                if (ammount > bag["Gold"].Values.Sum())
                                 {
                                     continue;
                                 }
@@ -63,17 +64,17 @@ namespace P05_GreedyTimes
                                 continue;
                             }
                         }
-                        else if (torba[kvoE].Values.Sum() + broika > torba["Gold"].Values.Sum())
+                        else if (bag[treasureType].Values.Sum() + ammount > bag["Gold"].Values.Sum())
                         {
                             continue;
                         }
                         break;
                     case "Cash":
-                        if (!torba.ContainsKey(kvoE))
+                        if (!bag.ContainsKey(treasureType))
                         {
-                            if (torba.ContainsKey("Gem"))
+                            if (bag.ContainsKey("Gem"))
                             {
-                                if (broika > torba["Gem"].Values.Sum())
+                                if (ammount > bag["Gem"].Values.Sum())
                                 {
                                     continue;
                                 }
@@ -83,46 +84,46 @@ namespace P05_GreedyTimes
                                 continue;
                             }
                         }
-                        else if (torba[kvoE].Values.Sum() + broika > torba["Gem"].Values.Sum())
+                        else if (bag[treasureType].Values.Sum() + ammount > bag["Gem"].Values.Sum())
                         {
                             continue;
                         }
                         break;
                 }
 
-                if (!torba.ContainsKey(kvoE))
+                if (!bag.ContainsKey(treasureType))
                 {
-                    torba[kvoE] = new Dictionary<string, long>();
+                    bag[treasureType] = new Dictionary<string, long>();
                 }
 
-                if (!torba[kvoE].ContainsKey(name))
+                if (!bag[treasureType].ContainsKey(name))
                 {
-                    torba[kvoE][name] = 0;
+                    bag[treasureType][name] = 0;
                 }
 
-                torba[kvoE][name] += broika;
-                if (kvoE == "Gold")
-                {
-                    zlato += broika;
-                }
-                else if (kvoE == "Gem")
-                {
-                    kamuni += broika;
-                }
-                else if (kvoE == "Cash")
-                {
-                    mangizi += broika;
-                }
+                bag[treasureType][name] += ammount;
             }
+        }
 
-            foreach (var x in torba)
+
+        private static string WhatTypeIsTheTreasure(string name)
+        {
+            string treasureType = string.Empty;
+
+            if (name.Length == 3)
             {
-                Console.WriteLine($"<{x.Key}> ${x.Value.Values.Sum()}");
-                foreach (var item2 in x.Value.OrderByDescending(y => y.Key).ThenBy(y => y.Value))
-                {
-                    Console.WriteLine($"##{item2.Key} - {item2.Value}");
-                }
+                treasureType = "Cash";
             }
+            else if (name.ToLower().EndsWith("gem"))
+            {
+                treasureType = "Gem";
+            }
+            else if (name.ToLower() == "gold")
+            {
+                treasureType = "Gold";
+            }
+
+            return treasureType;
         }
     }
 }
