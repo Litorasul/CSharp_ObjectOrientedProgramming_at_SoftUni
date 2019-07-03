@@ -5,3 +5,4 @@ My Homeworks for the C# OOP module at SoftUni
 
 Topics:
   01. Working with Abstraction
+  02. Inheritance
