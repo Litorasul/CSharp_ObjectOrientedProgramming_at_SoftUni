@@ -15,10 +15,7 @@ namespace Person
             }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException("Age can not be negative!");
-                }
+
                 age = value;
             }
         }

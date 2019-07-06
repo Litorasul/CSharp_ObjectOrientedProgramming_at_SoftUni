@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Animals
+{
+    public class Tomcat : Cat
+    {
+        public static List<Tomcat> List { get; set; }
+        public Tomcat(string name, int age)
+            :base(name, age, "Male")
+        {
+
+        }
+
+        public override void ProduceSound()
+        {
+            Console.WriteLine("MEOW");
+        }
+    }
+}
