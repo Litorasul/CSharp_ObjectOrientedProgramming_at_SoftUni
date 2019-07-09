@@ -12,7 +12,7 @@ namespace Restaurant
 
 
         public Cake(string name)
-            :base(name, CakePrice, CakeGrams, CakeCalories)
+            : base(name, CakePrice, CakeGrams, CakeCalories)
         {
 
         }
