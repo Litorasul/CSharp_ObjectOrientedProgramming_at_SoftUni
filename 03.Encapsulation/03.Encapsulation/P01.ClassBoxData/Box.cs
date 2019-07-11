@@ -16,7 +16,7 @@ namespace P01.ClassBoxData
             private set
             {
                 ValidateInput(value, "Lenght");
-                lenght = value;
+                this.lenght = value;
             }
         }
         public double Width
@@ -25,7 +25,7 @@ namespace P01.ClassBoxData
             private set
             {
                 ValidateInput(value, "Width");
-                width = value;
+                this.width = value;
             }
         }
         public double Height
@@ -34,7 +34,7 @@ namespace P01.ClassBoxData
             private set
             {
                 ValidateInput(value, "Height");
-                height = value;
+                this.height = value;
             }
         }
 
