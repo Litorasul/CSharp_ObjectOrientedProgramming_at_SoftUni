@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03.Ferrari", "P03.Ferrari\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04.Telephony", "P04.Telephony\P04.Telephony.csproj", "{6641BDB1-5AA8-4942-AC39-8F551ADE49F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05.BorderControl", "P05.BorderControl\P05.BorderControl.csproj", "{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6641BDB1-5AA8-4942-AC39-8F551ADE49F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6641BDB1-5AA8-4942-AC39-8F551ADE49F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6641BDB1-5AA8-4942-AC39-8F551ADE49F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
