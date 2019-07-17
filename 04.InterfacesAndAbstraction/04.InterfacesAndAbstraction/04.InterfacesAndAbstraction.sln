@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01.DefineInterface", "P01.DefineInterface\P01.DefineInterface.csproj", "{57D60FC3-9D78-4EA4-8CF8-ECB9EE569B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01.DefineInterface", "P01.DefineInterface\P01.DefineInterface.csproj", "{57D60FC3-9D78-4EA4-8CF8-ECB9EE569B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02.Multiple", "P02.Multiple\P02.Multiple.csproj", "{907959D6-32D6-4F66-8FCC-08C8FFE6C947}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02.Multiple", "P02.Multiple\P02.Multiple.csproj", "{907959D6-32D6-4F66-8FCC-08C8FFE6C947}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03.Ferrari", "P03.Ferrari\P03.Ferrari.csproj", "{B024286D-E78D-4F1A-9B1F-AA356B2D8DCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03.Ferrari", "P03.Ferrari\P03.Ferrari.csproj", "{B024286D-E78D-4F1A-9B1F-AA356B2D8DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04.Telephony", "P04.Telephony\P04.Telephony.csproj", "{6641BDB1-5AA8-4942-AC39-8F551ADE49F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P04.Telephony", "P04.Telephony\P04.Telephony.csproj", "{6641BDB1-5AA8-4942-AC39-8F551ADE49F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05.BorderControl", "P05.BorderControl\P05.BorderControl.csproj", "{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P05.BorderControl", "P05.BorderControl\P05.BorderControl.csproj", "{BFB85E7B-65F8-48B3-AACE-F9BCA88A9EE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P06.Birthday", "P06.Birthday\P06.Birthday.csproj", "{41E9FFD1-FC8B-4121-B269-608580613995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P06.Birthday", "P06.Birthday\P06.Birthday.csproj", "{41E9FFD1-FC8B-4121-B269-608580613995}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P07.FoodShortage", "P07.FoodShortage\P07.FoodShortage.csproj", "{392613F4-845F-45BC-A60F-7DB9AADD7B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P07.FoodShortage", "P07.FoodShortage\P07.FoodShortage.csproj", "{392613F4-845F-45BC-A60F-7DB9AADD7B26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P08.Military", "P08.Military\P08.Military.csproj", "{670A5134-B841-42E6-9DF7-886D8B4B8D8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{392613F4-845F-45BC-A60F-7DB9AADD7B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{392613F4-845F-45BC-A60F-7DB9AADD7B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{392613F4-845F-45BC-A60F-7DB9AADD7B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{670A5134-B841-42E6-9DF7-886D8B4B8D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{670A5134-B841-42E6-9DF7-886D8B4B8D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{670A5134-B841-42E6-9DF7-886D8B4B8D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{670A5134-B841-42E6-9DF7-886D8B4B8D8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
