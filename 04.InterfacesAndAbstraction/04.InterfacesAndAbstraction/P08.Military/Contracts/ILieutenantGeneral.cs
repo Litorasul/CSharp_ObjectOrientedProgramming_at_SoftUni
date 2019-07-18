@@ -5,7 +5,7 @@ namespace P08.Military.Contracts
 {
     public interface ILieutenantGeneral
     {
-        List<Private> Platoon { get; }
+        HashSet<Private> Platoon { get; }
         decimal Salary { get; }
 
         void AddPrivate(Private pr);

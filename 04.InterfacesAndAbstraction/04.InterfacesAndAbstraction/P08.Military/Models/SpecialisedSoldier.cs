@@ -12,10 +12,7 @@ namespace P08.Military.Models
             get { return this.corps; }
             protected set
             {
-                if (value != "Airforces" && value != "Marines")
-                {
-                    throw new ArgumentException("Invalid Corps!");
-                }
+              
                 this.corps = value;
             }
         }

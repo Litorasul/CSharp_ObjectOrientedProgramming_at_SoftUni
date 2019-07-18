@@ -16,7 +16,7 @@ namespace P08.Military
 
             while ((input = Console.ReadLine()) != "End")
             {
-                string[] info = input.Split();
+                string[] info = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 string type = info[0];
 
                 switch (type)
@@ -41,17 +41,23 @@ namespace P08.Military
                         break;
                     case "Engineer":
                         {
-                            ISoldier engineer = CreateEngineer(info);
-                            if (engineer == null)
+                            if (info[5] != "Airforces" && info[5] != "Marines")
                             {
-                                continue;
+                                break;
                             }
+                            ISoldier engineer = CreateEngineer(info);
+
                             soldiers.Add(engineer);
                         }
                         break;
                     case "Commando":
                         {
+                            if (info[5] != "Airforces" && info[5] != "Marines")
+                            {
+                                break;
+                            }
                             ISoldier commando = CreateCommando(info);
+
                             soldiers.Add(commando);
                         }
                         break;
@@ -72,24 +78,18 @@ namespace P08.Military
             decimal salary = decimal.Parse(info[4]);
             string corps = info[5];
             var commando = new Commando(id, firstName, lastName, salary, corps);
-            for (int i = 6; i < info.Length; i += 2)
-            {
-                try
-                {
-                    string codeName = info[i];
-                    string state = info[i + 1];
-                    Mission mission = new Mission(codeName);
-                    if (state.ToLower() == "finished")
-                    {
-                        mission.CompleteMission();
-                    }
-                    commando.AddMission(mission);
-                }
-                catch (Exception ex)
-                {
 
+            for (int i = 6; i < info.Length - 1; i += 2)
+            {
+                string codeName = info[i];
+                string state = info[i + 1];
+                if (state != "inProgress" && state != "Finished")
+                {
                     continue;
                 }
+                Mission mission = new Mission(codeName, state);              
+                commando.AddMission(mission);
+
             }
             return commando;
         }
@@ -101,23 +101,20 @@ namespace P08.Military
             string lastName = info[3];
             decimal salary = decimal.Parse(info[4]);
             string corps = info[5];
-            try
-            {
-                var engineer = new Engineer(id, firstName, lastName, salary, corps);
-                for (int i = 6; i < info.Length; i += 2)
-                {
-                    string partName = info[i];
-                    int workHours = int.Parse(info[i + 1]);
-                    Repair repair = new Repair(partName, workHours);
-                    engineer.AddRepair(repair);
-                }
-                return engineer;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
 
+            var engineer = new Engineer(id, firstName, lastName, salary, corps);
+            for (int i = 6; i < info.Length - 1; i += 2)
+            {
+                string partName = info[i];
+                int workHours = int.Parse(info[i + 1]);
+                if (workHours < 0 )
+                {
+                    continue;
+                }
+                Repair repair = new Repair(partName, workHours);
+                engineer.AddRepair(repair);
+            }
+            return engineer;
         }
 
         private static ISoldier CreateGeneral(string[] info, List<ISoldier> soldiers)

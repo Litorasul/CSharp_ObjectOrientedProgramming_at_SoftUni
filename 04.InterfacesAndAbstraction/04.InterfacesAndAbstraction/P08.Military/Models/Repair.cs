@@ -2,7 +2,7 @@
 
 namespace P08.Military.Models
 {
-    public class Repair
+    public class Repair : IRepair
     {
         public string PartName { get; private set; }
         public int HoursWorked { get; private set; }
@@ -16,7 +16,7 @@ namespace P08.Military.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append($"  Part Name: {this.PartName} Hours Worked: {this.HoursWorked}");
+            sb.Append($"Part Name: {this.PartName} Hours Worked: {this.HoursWorked}");
             return sb.ToString();
         }
     }

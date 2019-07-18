@@ -6,7 +6,7 @@ using System.Text;
 
 namespace P08.Military.Models
 {
-    public class Commando : SpecialisedSoldier, ISpecialisedSoldier
+    public class Commando : SpecialisedSoldier, ISpecialisedSoldier, ICommando
     {
         public List<Mission> Missions { get; private set; }
         public Commando(string id, string firstName, string lastName, decimal salary, string corps)
@@ -29,7 +29,7 @@ namespace P08.Military.Models
             sb.AppendLine($"Corps: {this.Corps}");
             sb.AppendLine("Missions:");
             sb.Append(string.Join(Environment.NewLine, this.Missions));
-            return sb.ToString().TrimEnd();
+            return sb.ToString().Trim();
         }
     }
 }
