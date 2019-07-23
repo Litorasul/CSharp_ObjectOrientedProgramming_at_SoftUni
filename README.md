@@ -9,3 +9,4 @@ Topics:
   03. Encapsulation
   04. Interfaces and Abstraction
   05. Polimorphism
+  06. SOLID
