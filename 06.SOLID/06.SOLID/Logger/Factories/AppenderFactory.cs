@@ -4,8 +4,6 @@ using Logger.Models.Contracts;
 using Logger.Models.Enumerations;
 using Logger.Models.Files;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Logger.Factories
 {

@@ -10,7 +10,7 @@ namespace Logger.Models.Files
 {
     public class LogFile : IFile
     {
-        private const string dateFormat = "M/dd/yyyy H:mm:ss tt";
+        private const string dateFormat = "M/dd/yyyy h:mm:ss tt";
         private const string currentDirectory = "\\logs\\";
         private const string currentFile = "log.txt";
 

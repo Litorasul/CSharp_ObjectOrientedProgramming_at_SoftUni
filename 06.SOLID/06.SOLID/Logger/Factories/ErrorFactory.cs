@@ -9,7 +9,7 @@ namespace Logger.Factories
 {
     public class ErrorFactory
     {
-        private const string dateFormat = "M/dd/yyyy H:mm:ss tt";
+        private const string dateFormat = "M/dd/yyyy h:mm:ss tt";
         public IError GetError(string dateString, string levelString, string message)
         {
             Level level;
@@ -25,7 +25,7 @@ namespace Logger.Factories
             {
                 dateTime = DateTime.ParseExact(dateString, dateFormat, CultureInfo.InvariantCulture);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw new InvalidDateFormatExeption();

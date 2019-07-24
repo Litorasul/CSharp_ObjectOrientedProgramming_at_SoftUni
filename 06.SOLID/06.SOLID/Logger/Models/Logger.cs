@@ -27,5 +27,17 @@ namespace Logger.Models
                 }
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+            result.AppendLine("Logger info");
+            foreach (var appender in this.Appenders)
+            {
+                result.AppendLine(appender.ToString());
+            }
+
+            return result.ToString().TrimEnd();
+        }
     }
 }
