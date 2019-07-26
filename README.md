@@ -10,3 +10,4 @@ Topics:
   04. Interfaces and Abstraction
   05. Polimorphism
   06. SOLID
+  07. Reflection and Attributes
