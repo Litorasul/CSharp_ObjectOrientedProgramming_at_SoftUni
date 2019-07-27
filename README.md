@@ -11,3 +11,4 @@ Topics:
   05. Polimorphism
   06. SOLID
   07. Reflection and Attributes
+  08. Exceptions and Error Handling
