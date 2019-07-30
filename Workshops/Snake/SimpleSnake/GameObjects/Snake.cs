@@ -57,7 +57,7 @@ namespace SimpleSnake.GameObjects
 
             if (foods[foodIndex].IsFoodPoint(snakeNewHead))
             {
-
+                this.Eat(direction, snakeHead);
             }
 
             Point snakeTail = snakeElements.Dequeue();
@@ -91,6 +91,8 @@ namespace SimpleSnake.GameObjects
             {
                 this.snakeElements.Enqueue(new Point(2, topY));
             }
+
+            this.foods[foodIndex].SetRandomPosition(this.snakeElements);
         }
 
         private void GetFoods()
