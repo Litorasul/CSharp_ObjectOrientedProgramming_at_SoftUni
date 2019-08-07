@@ -6,14 +6,11 @@ namespace MortalEngines.Entities.Models
     public class Tank : BaseMachine, ITank
     {
         private const double Hp = 100;
-        private readonly double normalAttackPoints;
-        private readonly double normalDefensePoints;
+
         public Tank(string name, double attackPoints, double defensePoints) 
             : base(name, attackPoints, defensePoints, Hp)
         {
             DefenseMode = true;
-            normalAttackPoints = attackPoints;
-            normalDefensePoints = defensePoints;
         }
 
         public bool DefenseMode { get; private set; }

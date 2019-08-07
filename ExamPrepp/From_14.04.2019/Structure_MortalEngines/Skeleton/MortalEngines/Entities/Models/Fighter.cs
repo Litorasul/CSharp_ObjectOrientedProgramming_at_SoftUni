@@ -6,14 +6,11 @@ namespace MortalEngines.Entities.Models
     public class Fighter : BaseMachine, IFighter
     {
         private const double Hp = 200;
-        private readonly double normalAttackPoints;
-        private readonly double normalDefensePoints;
+
         public Fighter(string name, double attackPoints, double defensePoints)
             : base(name, attackPoints, defensePoints, Hp)
         {
             AggressiveMode = true;
-            normalAttackPoints = attackPoints;
-            normalDefensePoints = defensePoints;
         }
 
         public bool AggressiveMode { get; private set; }

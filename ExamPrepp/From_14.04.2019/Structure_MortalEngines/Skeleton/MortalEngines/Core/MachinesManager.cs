@@ -107,12 +107,12 @@ namespace MortalEngines.Core
                 return $"Machine {defendingMachineName} could not be found";
             }
 
-            if (attacker.HealthPoints == 0)
+            if (attacker.HealthPoints == 0.0)
             {
                 return $"Dead machine {attackingMachineName} cannot attack or be attacked";
             }
 
-            if (defender.HealthPoints == 0)
+            if (defender.HealthPoints == 0.0)
             {
                 return $"Dead machine {defendingMachineName} cannot attack or be attacked";
             }

@@ -52,12 +52,12 @@ namespace MortalEngines.Entities.Models
                 throw new NullReferenceException("Target cannot be null");
             }
 
-            double damage = Math.Max(0, AttackPoints - target.DefensePoints);
+            double damage = Math.Max(0.0, AttackPoints - target.DefensePoints);
            
 
             if (target.HealthPoints < damage)
             {
-                target.HealthPoints = 0;
+                target.HealthPoints = 0.0;
             }
             else
             {
