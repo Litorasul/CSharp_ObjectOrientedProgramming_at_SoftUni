@@ -18,13 +18,10 @@ namespace MortalEngines.Core
             this.machines = new List<IMachine>();
         }
 
-        public IReadOnlyCollection<IPilot> Pilots => pilots.AsReadOnly();
-        public IReadOnlyCollection<IMachine> Machines => machines.AsReadOnly();
-
         public string HirePilot(string name)
         {
-            IPilot pilot = pilots.Where(p => p.Name == name)
-                .FirstOrDefault();
+            IPilot pilot = pilots
+                .FirstOrDefault(p => p.Name == name);
             if (pilot != null)
             {
                 return $"Pilot {name} is hired already";
@@ -38,7 +35,7 @@ namespace MortalEngines.Core
         public string ManufactureTank(string name, double attackPoints, double defensePoints)
         {
             IMachine tank = machines
-                .FirstOrDefault(m => m.Name == name && m.GetType().Name == "Tank");
+                .FirstOrDefault(m => m.Name == name);
                
             if (tank != null)
             {
@@ -47,7 +44,7 @@ namespace MortalEngines.Core
             tank = new Tank(name, attackPoints, defensePoints);
             machines.Add(tank);
 
-            return $"Tank {name} manufactured - attack: {attackPoints:F2}; defense: {defensePoints:F2}";
+            return $"Tank {name} manufactured - attack: {tank.AttackPoints:F2}; defense: {tank.DefensePoints:F2}";
         }
 
         public string ManufactureFighter(string name, double attackPoints, double defensePoints)
@@ -61,7 +58,7 @@ namespace MortalEngines.Core
             fighter = new Fighter(name, attackPoints, defensePoints);
             machines.Add(fighter);
 
-            return $"Fighter {name} manufactured - attack: {attackPoints:F2}; defense: {defensePoints:F2}; aggressive: ON";
+            return $"Fighter {name} manufactured - attack: {fighter.AttackPoints:F2}; defense: {fighter.DefensePoints:F2}; aggressive: ON";
         }
 
         public string EngageMachine(string selectedPilotName, string selectedMachineName)
@@ -124,8 +121,8 @@ namespace MortalEngines.Core
 
         public string PilotReport(string pilotReporting)
         {
-            IPilot pilot = pilots.Where(p => p.Name == pilotReporting)
-                .FirstOrDefault();
+            IPilot pilot = pilots
+                .FirstOrDefault(p => p.Name == pilotReporting);
 
 
             return pilot.Report();
@@ -133,8 +130,8 @@ namespace MortalEngines.Core
 
         public string MachineReport(string machineName)
         {
-            IMachine machine = machines.Where(m => m.Name == machineName)
-                .FirstOrDefault();
+            IMachine machine = machines
+                .FirstOrDefault(m => m.Name == machineName);
 
 
             return machine.ToString();
@@ -155,8 +152,8 @@ namespace MortalEngines.Core
 
         public string ToggleTankDefenseMode(string tankName)
         {
-            Tank tank = (Tank)machines.Where(m => m.Name == tankName)
-                .FirstOrDefault();
+            Tank tank = (Tank)machines
+                .FirstOrDefault(m => m.Name == tankName);
             if (tank == null)
             {
                 return $"Machine {tankName} could not be found";

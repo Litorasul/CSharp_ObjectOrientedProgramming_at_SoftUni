@@ -10,7 +10,7 @@ namespace MortalEngines.Entities.Models
         public Fighter(string name, double attackPoints, double defensePoints)
             : base(name, attackPoints, defensePoints, Hp)
         {
-            AggressiveMode = true;
+            this.ToggleAggressiveMode();
         }
 
         public bool AggressiveMode { get; private set; }

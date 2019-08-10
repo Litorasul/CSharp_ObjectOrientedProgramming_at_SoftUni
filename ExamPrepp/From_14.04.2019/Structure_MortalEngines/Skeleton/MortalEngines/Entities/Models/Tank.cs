@@ -10,7 +10,7 @@ namespace MortalEngines.Entities.Models
         public Tank(string name, double attackPoints, double defensePoints) 
             : base(name, attackPoints, defensePoints, Hp)
         {
-            DefenseMode = true;
+            this.ToggleDefenseMode();
         }
 
         public bool DefenseMode { get; private set; }
