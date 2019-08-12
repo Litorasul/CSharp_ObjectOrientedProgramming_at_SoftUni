@@ -1,5 +1,6 @@
 ﻿using PlayersAndMonsters.Models.Cards.Contracts;
 using System;
+using PlayersAndMonsters.Common;
 
 namespace PlayersAndMonsters.Models.Cards
 {
@@ -55,6 +56,12 @@ namespace PlayersAndMonsters.Models.Cards
 
                 healthPoints = value;
             } 
+        }
+
+        public override string ToString()
+        {
+            return string.Format(ConstantMessages.CardReportInfo,
+                this.Name, this.DamagePoints);
         }
     }
 }

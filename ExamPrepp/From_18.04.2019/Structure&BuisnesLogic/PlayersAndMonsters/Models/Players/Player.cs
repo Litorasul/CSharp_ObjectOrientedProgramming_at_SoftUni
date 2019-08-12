@@ -1,6 +1,7 @@
 ﻿using PlayersAndMonsters.Models.Players.Contracts;
 using PlayersAndMonsters.Repositories.Contracts;
 using System;
+using PlayersAndMonsters.Common;
 
 namespace PlayersAndMonsters.Models.Players
 {
@@ -54,6 +55,12 @@ namespace PlayersAndMonsters.Models.Players
             }
 
             this.Health = Math.Max(0, this.Health - damagePoints);
+        }
+
+        public override string ToString()
+        {
+            return string.Format(ConstantMessages.PlayerReportInfo,
+                this.Username, this.Health, this.CardRepository.Count);
         }
     }
 }
